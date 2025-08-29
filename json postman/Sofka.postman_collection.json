@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "66b4e5d9-5aaf-43fb-bf89-af96c76b2c55",
+		"name": "Sofka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1334906"
+	},
+	"item": [
+		{
+			"name": "personas",
+			"item": [
+				{
+					"name": "get all personas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Integer.parseInt(obj[4].toString())",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/personas/Get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"personas",
+								"Get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create persona",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Andres Delgado\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": \"43\",\r\n    \"identificacion\": \"1717551673\",\r\n    \"direccion\": \"Ponceano\",\r\n    \"telefono\": \"0999208576\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/personas/Post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"personas",
+								"Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update persona by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Maria\",\r\n    \"genero\": \"Femenino\",\r\n    \"edad\": \"16\",\r\n    \"identificacion\": \"171755167-3\",\r\n    \"direccion\": \"Ponceano\",\r\n    \"telefono\": \"+593533014\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/personas/Put/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"personas",
+								"Put",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete persona by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jose\",\r\n    \"lastName\": \"Beltral\",\r\n    \"email\": \"beltran_developer@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/personas/Delete/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"personas",
+								"Delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "get all cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Integer.parseInt(obj[4].toString())",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/clientes/Get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"clientes",
+								"Get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create cliente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"persona\": { \"id\": 3 },\r\n    \"contrasena\": \"6666\",\r\n    \"estado\": \"False\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/clientes/Post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"clientes",
+								"Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cliente by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contrasena\": \"12345\",\r\n    \"estado\": \"XXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/clientes/Put/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"clientes",
+								"Put",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cliente by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jose\",\r\n    \"lastName\": \"Beltral\",\r\n    \"email\": \"beltran_developer@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/clientes/Delete/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"clientes",
+								"Delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cuentas",
+			"item": [
+				{
+					"name": "get all cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Integer.parseInt(obj[4].toString())",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/cuentas\\Get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"cuentas",
+								"Get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create cuenta",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\": { \"clienteid\": 1 },\r\n    \"numeroCuenta\": 585545,\r\n    \"tipoCuenta\": \"Ahorros\",\r\n    \"saldoInicial\": 540,\r\n    \"estado\": \"True\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/cuentas/Post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"cuentas",
+								"Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cuenta by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"numeroCuenta\": 478758,\r\n    \"tipoCuenta\": \"Ahorrozz\",\r\n    \"saldoInicial\": 50,\r\n    \"estado\": \"True\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/cuentas/Put/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"cuentas",
+								"Put",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cuenta by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jose\",\r\n    \"lastName\": \"Beltral\",\r\n    \"email\": \"beltran_developer@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/cuentas/Delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"cuentas",
+								"Delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movimientos",
+			"item": [
+				{
+					"name": "get all movimiento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Integer.parseInt(obj[4].toString())",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/movimientos/Get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"movimientos",
+								"Get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movimiento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fecha\": \"2025-08-29\",\r\n  \"tipoMovimiento\": \"Retiro de 540\",\r\n  \"valor\": -540.0,\r\n  \"saldo\": 540.0,\r\n  \"cuenta\": {\r\n    \"id\": 2,\r\n    \"numeroCuenta\": \"496825\"\r\n  }\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/movimientos/Post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"movimientos",
+								"Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movimiento by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fecha\": \"2025-08-28\",\r\n  \"tipoMovimiento\": \"Deposito de 50\",\r\n  \"valor\": 50.0,\r\n  \"saldo\": 50.0,\r\n  \"saldoDisponible\": 100.0\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/movimientos/Put/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"movimientos",
+								"Put",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movimiento by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jose\",\r\n    \"lastName\": \"Beltral\",\r\n    \"email\": \"beltran_developer@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/movimientos/Delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"movimientos",
+								"Delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET reporte estado de cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/reportes/estado-cuenta?clienteId=1&desde=2025-08-01&hasta=2025-08-30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reportes",
+						"estado-cuenta"
+					],
+					"query": [
+						{
+							"key": "clienteId",
+							"value": "1"
+						},
+						{
+							"key": "desde",
+							"value": "2025-08-01"
+						},
+						{
+							"key": "hasta",
+							"value": "2025-08-30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
