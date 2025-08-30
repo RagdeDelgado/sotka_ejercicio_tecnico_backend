@@ -30,7 +30,7 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`clienteid`),
   KEY `FKlx9olb9sc6g1jmi2ltpv030y6` (`personaid`),
   CONSTRAINT `FKlx9olb9sc6g1jmi2ltpv030y6` FOREIGN KEY (`personaid`) REFERENCES `persona` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'1234','True',1),(2,'5678','True',2);
+INSERT INTO `cliente` VALUES (1,'1234','True',1),(2,'5678','True',2),(3,'1245','True',3);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,7 @@ CREATE TABLE `cuenta` (
   UNIQUE KEY `UKpj7ncg765kt4klndu25bwbwe4` (`numero_cuenta`),
   KEY `FKtiah1fi6lm797bbc6bkex91ie` (`clienteid`),
   CONSTRAINT `FKtiah1fi6lm797bbc6bkex91ie` FOREIGN KEY (`clienteid`) REFERENCES `cliente` (`clienteid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `cuenta` (
 
 LOCK TABLES `cuenta` WRITE;
 /*!40000 ALTER TABLE `cuenta` DISABLE KEYS */;
-INSERT INTO `cuenta` VALUES (1,'True','478758',2000.00,'Ahorro',1),(6,'True','2254871',1000.00,'Corriente',2);
+INSERT INTO `cuenta` VALUES (1,'True','478758',2000.00,'Ahorro',1),(2,'True','225487',100.00,'Corriente',2),(3,'True','495878',0.00,'Ahorros',3),(4,'True','496825',540.00,'Ahorros',2),(5,'True','585545',1000.00,'Corriente',1);
 /*!40000 ALTER TABLE `cuenta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,14 +85,14 @@ CREATE TABLE `movimiento` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
   `saldo` double DEFAULT NULL,
+  `saldo_disponible` double DEFAULT NULL,
   `tipo_movimiento` varchar(255) DEFAULT NULL,
   `valor` double DEFAULT NULL,
   `numero_cuenta` varchar(255) DEFAULT NULL,
-  `saldo_disponible` double DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKk10u787s9re28fue9gdscb5kt` (`numero_cuenta`),
   CONSTRAINT `FKk10u787s9re28fue9gdscb5kt` FOREIGN KEY (`numero_cuenta`) REFERENCES `cuenta` (`numero_cuenta`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,37 +101,8 @@ CREATE TABLE `movimiento` (
 
 LOCK TABLES `movimiento` WRITE;
 /*!40000 ALTER TABLE `movimiento` DISABLE KEYS */;
-INSERT INTO `movimiento` VALUES (1,'2025-08-28',9000,'Retiro de 575',9000,'478758',NULL),(3,'2025-08-28',2000,'Retiro de 575',-575,'478758',2575),(4,'2025-08-28',1000,'Retiro de 575',-575,'478758',1575),(5,'2025-08-28',1,'Retiro de 575',575,'478758',-574),(6,'2025-08-28',1,'Retiro de 575',-575,'478758',576),(7,'2025-08-28',1,'Retiro de 575',-575,'478758',576),(8,'2025-08-28',1,'Retiro de 575',-575,'478758',-574),(9,'2025-08-28',10,'Retiro de 575',575,'478758',585),(10,'2025-08-28',10,'Retiro de 575',-575,'478758',-565),(11,'2025-08-28',10,'Retiro de 575',-575,'478758',-565),(12,'2025-08-28',0,'Retiro de 575',-575,'478758',-575),(13,'2025-08-28',100,'Retiro de 575',-575,'478758',-475),(14,'2025-08-28',1,'Retiro de 575',575,'478758',-574),(15,'2025-08-29',100,'Retiro de 575',-575,'478758',-475),(16,'2025-08-29',1,'Retiro de 575',-575,'478758',-574);
+INSERT INTO `movimiento` VALUES (1,'2025-08-29',2000,1425,'Retiro de 575',-575,'478758'),(2,'2025-08-29',100,700,'Deposito de 600',600,'225487'),(3,'2025-08-29',0.1,150.1,'Deposito de 150',150,'495878'),(4,'2025-08-29',540,0,'Retiro de 540',-540,'496825');
 /*!40000 ALTER TABLE `movimiento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `movimiento_model`
---
-
-DROP TABLE IF EXISTS `movimiento_model`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `movimiento_model` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `saldo` double NOT NULL,
-  `tipo_movimiento` varchar(50) NOT NULL,
-  `valor` double NOT NULL,
-  `cuenta_id` bigint NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKmnjbwuoafjh9h4ga31xrkx20c` (`cuenta_id`),
-  CONSTRAINT `FKmnjbwuoafjh9h4ga31xrkx20c` FOREIGN KEY (`cuenta_id`) REFERENCES `cuenta` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `movimiento_model`
---
-
-LOCK TABLES `movimiento_model` WRITE;
-/*!40000 ALTER TABLE `movimiento_model` DISABLE KEYS */;
-/*!40000 ALTER TABLE `movimiento_model` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -159,7 +130,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'Otavalo sn y principal','20','Masculino','098254785','Jose Lema','098254785'),(2,'Amazonas y NNUU','16','Femenino','097548965','Marianela Montalvo','097548965');
+INSERT INTO `persona` VALUES (1,'Otavalo sn y principal','50','Masculino','098254785','Jose Lema','098254785'),(2,'Amazonas y NNUU','50','Femenino','097548965','Marianela Montalvo','097548965'),(3,'13 junio y Equinoccial','50','Masculino','098874587','Juan Osorio','098874587');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-08-29  9:59:54
+-- Dump completed on 2025-08-29 19:32:23
